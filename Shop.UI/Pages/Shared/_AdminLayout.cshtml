@@ -1,0 +1,63 @@
+﻿@inject IAuthorizationService _authService
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>RazorPages</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/main_style.css">
+</head>
+<body>
+<nav class="nav-bar">
+</nav>
+<div>
+    <partial name="_CookieConsentPartial"/>
+    <main class="main-body">
+        <section class="left-navigation">
+            <div class="menu">
+                @if ((await _authService.AuthorizeAsync(User, "Manager")).Succeeded)
+                {
+                    <p class="menu-label">Store menu</p>
+                    <ul class="menu-list">
+                        <li>
+                            <a asp-page="/Admin/Index">Product</a>
+                        </li>
+                        <li>
+                            <a asp-page="/Admin/Orders">Orders</a>
+                        </li>
+                        <li>
+                            <a asp-page="/Admin/Stock">Stock</a>
+                        </li>
+
+                        <li>
+                            <a asp-page="/Index">Back to main</a>
+                        </li>
+                    </ul>
+                }
+                @if ((await _authService.AuthorizeAsync(User, "Admin")).Succeeded)
+                {
+                    <p class="menu-label">Admin menu</p>
+                    <ul class="menu-list">
+                        <li>
+                            <a asp-page="/Admin/ConfigureUsers">Configure Users</a>
+                        </li>
+                        <li>
+                            <a asp-page="/Admin/OrderManagement">Order Management</a>
+                        </li>
+                    </ul>
+                }
+            </div>
+        </section>
+        <section class="middle-content">
+            @RenderBody()
+        </section>
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

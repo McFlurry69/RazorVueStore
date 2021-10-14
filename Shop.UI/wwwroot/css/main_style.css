@@ -1,0 +1,165 @@
+﻿* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 62.5%;
+  font-family: 'Montserrat', sans-serif;
+  animation: fade-in-page 1s ease;
+}
+
+@keyframes fade-in-page {
+  from{
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+
+.main-body{
+  width: 70%;
+  margin: auto;
+  display: flex;
+}
+
+.nav-bar {
+  width: 80%;
+  margin: auto;
+  padding: 2rem 2rem 5rem;
+  text-align: center;
+}
+
+.nav-bar a{
+    font-size: 1.4rem;
+}
+
+ul {
+  list-style: none;
+}
+
+
+.menu-label {
+  font-size: 1.5rem;
+  padding-bottom: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-list li:last-child{
+  margin: 2rem;
+  border-bottom: 1px solid black;
+}
+
+.left-navigation {
+  flex: 1 1 10rem;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  position: sticky;
+  top: 10px;
+}
+
+.left-navigation a{
+  font-size: 1.5rem;
+  padding: 1rem;
+  display: block;
+  transition: 0.7s ease-in-out;
+}
+
+.left-navigation a:hover{
+  background: rgba(164, 162, 165, 0.41);
+}
+
+.middle-content {
+  flex: 9 1 40rem;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-list{
+  padding: 2rem;
+}
+
+.product-list td{
+  font-size: 1.4rem;
+  padding: 0.5rem;
+}
+
+.product-list td a{
+  margin: 2rem;
+  cursor: pointer;
+}
+
+.product-list th{
+  font-size: 1.4rem;
+  font-weight: normal;
+  padding-bottom: 2rem;
+}
+
+.product-list a{
+  color: blueviolet;
+}
+
+.product-list a:hover{
+  color: cadetblue;
+}
+
+.product-label {
+  display: block;
+  padding: 1.2rem 0;
+  font-size: 1.3rem;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.product-form input {
+  width: 50%;
+  padding: 0.4rem;
+  display: block;
+}
+
+.product-form input:focus {
+  background: rgba(14, 53, 14, 0.09);
+}
+
+.product-form textarea {
+  width: 50%;
+}
+
+.product-form textarea:focus {
+  background: rgba(14, 53, 14, 0.09);
+}
+
+.form-button {
+  margin: 1rem;
+  padding: 0.7rem;
+  border: none;
+  display: flex;
+  background: rgba(138, 43, 226, 0.26);
+  font-size: 1.7rem;
+  border-radius: 0.6rem;
+}
+
+.form-button:hover {
+  background: rgba(95, 158, 160, 0.45);
+  cursor: pointer;
+}

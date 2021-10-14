@@ -1,0 +1,41 @@
+﻿@page
+@model Shop.UI.Pages.Admin.OrderManagement
+
+@{
+}
+
+<div id="app">
+    <div v-if="selectedOrder === null">
+        <div>
+            <ul>
+                <li v-bind:class="{'is-active': status === 0}">
+                    <a v-on:click="status = 0">Pending</a>
+                </li>
+                <li v-bind:class="{'is-active': status === 1}">
+                    <a v-on:click="status = 1">Packed</a>
+                </li>
+                <li v-bind:class="{'is-active': status === 2}">
+                    <a v-on:click="status = 2">Shipped</a>
+                </li>
+            </ul>
+        </div>
+        <div v-if="orders.length > 0">
+            <p v-for="order in orders">
+                <a v-on:click="selectOrder(order.id)">{{order.orderRef}} - {{order.email}}</a>
+            </p>
+        </div>
+    </div>
+    <div v-else>
+        <p>
+            <button v-on:click="exitOrder">Exit</button>
+        </p>
+        <p>{{selectedOrder.orderRef}}</p>
+        <p>{{selectedOrder.email}}</p>
+        <button v-on:click="updateOrder">Process</button>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/Admin/orders.js"></script>
+}

@@ -1,0 +1,17 @@
+﻿@page
+@model Shop.UI.Pages.Admin.ConfigureUsers
+
+@{
+    
+}
+
+<div id="app" class="main-body">
+    <section class="middle-content">
+        <input v-model="username" />
+        <button v-on:click="createUser" type="submit">Create</button>
+    </section>
+</div>
+
+@section Scripts{
+    <script src="~/js/Admin/users.js"></script>
+}

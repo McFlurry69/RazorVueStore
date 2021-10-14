@@ -2,3 +2,4 @@
 bin/
 obj/
 Shop.UI/appsettings.json
+node_modules/

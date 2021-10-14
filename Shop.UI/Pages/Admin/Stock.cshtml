@@ -1,0 +1,49 @@
+﻿@page
+@model Shop.UI.Pages.Admin.Stock
+
+@{
+}
+
+<div id="app" class="main-body">
+    <div>
+        <table>
+            <tr v-for="product in products" v-on:click="selectProduct(product)">
+                <td>{{product.description}}</td>
+            </tr>
+        </table>
+    </div>
+    <div v-if="selectedProduct">
+        <table>
+            <tr v-for="(stock, index) in selectedProduct.stock">
+                <td>
+                    <input v-model="stock.description">
+                </td>
+                <td>
+                    <input v-model="stock.quantity">
+                </td>
+                <td>
+                    <a @@click="deleteStock(stock.id, index)">Delete Stock</a>
+                </td>
+            </tr>
+        </table>
+        <a v-on:click="updateStock">Update Stock</a>
+    </div>
+    <div>
+        <h2>New Stock</h2>
+        <div>
+            <input v-model="newStock.description">
+        </div>
+        <div>
+            <input v-model="newStock.quantity">
+        </div>
+    </div>
+    <button v-on:click="addStock">Add</button>
+</div>
+
+
+@section Scripts
+{
+    @* <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> *@
+    @* <script src="https://unpkg.com/axios/dist/axios.min.js"></script> *@
+    <script src="~/js/Admin/stocks.js"></script>
+}
